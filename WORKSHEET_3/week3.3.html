@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon Panels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0; /* Light gray background for the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            margin: 0;
+            padding: 20px; /* Add some padding around the panels */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        .panel-container {
+            display: flex; /* Use flexbox for better alignment and spacing of inline-blocks */
+            gap: 20px; /* Space between panels */
+            flex-wrap: wrap; /* Allow panels to wrap on smaller screens */
+            justify-content: center; /* Center panels if they wrap */
+        }
+        .cartoon-panel {
+            /* Base styles for all panels */
+            display: inline-block; /* Essential for side-by-side layout */
+            padding: 20px; /* Inner spacing */
+            margin: 10px; /* Outer spacing between panels and container */
+            border: 5px solid #333; /* Thick border for cartoon look */
+            border-radius: 15px; /* Rounded corners for a softer, cartoon feel */
+            box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.75); /* Strong shadow for depth */
+            text-align: center;
+            color: #fff; /* White text color */
+            font-weight: bold;
+            font-size: 1.25rem; /* Larger font size */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+            flex-shrink: 0; /* Prevent panels from shrinking */
+            min-width: 200px; /* Minimum width to ensure content fits */
+            max-width: 30%; /* Max width to allow responsiveness, but keep them side-by-side */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+        .cartoon-panel:hover {
+            transform: translate(-4px, -4px); /* Slight lift effect on hover */
+            box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 0.75); /* Enhanced shadow on hover */
+        }
+
+        /* Specific styles for each panel */
+        .panel-1 {
+            background-color: #ff6347; /* Tomato red */
+            width: 280px; /* Specific width */
+        }
+        .panel-2 {
+            background-color: #4682b4; /* Steel blue */
+            width: 320px; /* Specific width */
+        }
+        .panel-3 {
+            background-color: #3cb371; /* Medium sea green */
+            width: 250px; /* Specific width */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .panel-container {
+                flex-direction: column; /* Stack panels vertically on smaller screens */
+                align-items: center; /* Center stacked panels */
+                gap: 15px;
+            }
+            .cartoon-panel {
+                width: 90% !important; /* Make panels take more width on small screens */
+                max-width: 400px; /* Limit max width even when stacked */
+                margin: 10px 0; /* Adjust margin for vertical stacking */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-container">
+        <div class="cartoon-panel panel-1">
+            Panel One
+            <p class="mt-2 text-sm">A vibrant start!</p>
+        </div>
+        <div class="cartoon-panel panel-2">
+            Panel Two
+            <p class="mt-2 text-sm">The plot thickens...</p>
+        </div>
+        <div class="cartoon-panel panel-3">
+            Panel Three
+            <p class="mt-2 text-sm">And the adventure continues!</p>
+        </div>
+    </div>
+</body>
+</html>

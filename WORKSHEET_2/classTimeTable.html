@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section 1 - HTML Tables</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #ecf0f1;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Section 1: Tables</h2>
+
+  <!-- Question 1: Class Schedule Table -->
+  <table>
+    <caption>Class Schedule</caption>
+    <tr>
+      <th>Day/Period</th>
+      <th>08:00 - 09:00</th>
+      <th>09:00 - 10:00</th>
+      <th>10:00 - 11:00</th>
+      <th>11:00 - 12:00</th>
+      <th>12:00 - 01:00</th>
+      <th>Lunch Break<br>01:00 - 02:00</th>
+      <th>02:00 - 03:00</th>
+    </tr>
+    <tr><th>Monday</th><td>Math</td><td>English</td><td>Biology</td><td>Physics</td><td>Chemistry</td><td>Lunch</td><td>Computer</td></tr>
+    <tr><th>Tuesday</th><td>History</td><td>Geography</td><td>English</td><td>Math</td><td>Computer</td><td>Lunch</td><td>PE</td></tr>
+    <tr><th>Wednesday</th><td>Biology</td><td>Math</td><td>Computer</td><td>Physics</td><td>Chemistry</td><td>Lunch</td><td>History</td></tr>
+    <tr><th>Thursday</th><td>Math</td><td>Biology</td><td>English</td><td>PE</td><td>Computer</td><td>Lunch</td><td>Geography</td></tr>
+    <tr><th>Friday</th><td>English</td><td>History</td><td>Geography</td><td>Math</td><td>Computer</td><td>Lunch</td><td>Art</td></tr>
+  </table>
+
+  <!-- Question 2: Book List Table -->
+  <table>
+    <caption>Book List</caption>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>The Alchemist</td><td>Paulo Coelho</td><td>$10.99</td></tr>
+      <tr><td>1984</td><td>George Orwell</td><td>$8.99</td></tr>
+      <tr><td>Clean Code</td><td>Robert C. Martin</td><td>$25.00</td></tr>
+      <tr><td>Atomic Habits</td><td>James Clear</td><td>$16.00</td></tr>
+      <tr><td>Thinking Fast and Slow</td><td>Daniel Kahneman</td><td>$14.50</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Question 3: Grocery List Table with Borders and Padding -->
+  <table>
+    <caption>Grocery List</caption>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Apples</td><td>1 kg</td><td>Fruits</td></tr>
+      <tr><td>Bread</td><td>2 loaves</td><td>Bakery</td></tr>
+      <tr><td>Milk</td><td>2 liters</td><td>Dairy</td></tr>
+      <tr><td>Eggs</td><td>12 pcs</td><td>Dairy</td></tr>
+      <tr><td>Tomatoes</td><td>500 g</td><td>Vegetables</td></tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

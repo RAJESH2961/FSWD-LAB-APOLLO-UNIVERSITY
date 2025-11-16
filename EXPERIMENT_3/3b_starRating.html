@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Star Rating</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, sans-serif; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center;
+      height: 100vh; 
+      margin: 0;
+      /* background: linear-gradient(135deg, #74ebd5, #ACB6E5); */
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .star-rating { 
+      font-size: 40px; 
+      cursor: pointer; 
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    .star { 
+      color: #ddd; 
+      transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.3s ease;
+    }
+    .star:hover { 
+      transform: scale(1.2); 
+      text-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+    }
+    .star.filled { 
+      color: #ffc107; 
+      text-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+    }
+    #rating-text { 
+      font-weight: 600;
+      font-size: 16px; 
+      color: #444;
+      margin-top: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h2>⭐ Rate This Product ⭐</h2>
+  <div class="star-rating">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+  <p id="rating-text"></p>
+
+  <script>
+    $(document).ready(function(){
+      let rating = 0;
+
+      // Hover effect
+      $('.star').on('mouseover', function(){
+        let hoverValue = $(this).data('value');
+        $('.star').each(function(){
+          if ($(this).data('value') <= hoverValue) {
+            $(this).addClass('filled');
+          } else {
+            $(this).removeClass('filled');
+          }
+        });
+      });
+
+      // Reset on mouse out
+      $('.star-rating').on('mouseout', function(){
+        $('.star').each(function(){
+          if ($(this).data('value') <= rating) {
+            $(this).addClass('filled');
+          } else {
+            $(this).removeClass('filled');
+          }
+        });
+      });
+
+      // Click to set rating
+      $('.star').on('click', function(){
+        rating = $(this).data('value');
+        $('#rating-text').hide().text('✅ Thank you! You rated this ' + rating + ' out of 5.').fadeIn(400);
+      });
+    });
+  </script>
+</body>
+</html>

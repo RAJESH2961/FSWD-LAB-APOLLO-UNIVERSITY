@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Student Table</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f1f7ff;
+    }
+  </style>
+</head>
+<body ng-controller="studentCtrl">
+  <h2>Student Details</h2>
+  <table>
+    <tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Grade</th>
+    </tr>
+    <tr ng-repeat="student in students">
+      <td>{{ student.rollNo }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.course }}</td>
+      <td>{{ student.grade }}</td>
+    </tr>
+  </table>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('studentCtrl', function($scope) {
+      $scope.students = [
+        { rollNo: 101, name: 'Ram', course: 'Computer Science', grade: 'A' },
+        { rollNo: 102, name: 'Balaji', course: 'Information Tech', grade: 'B' },
+        { rollNo: 103, name: 'Monika', course: 'Computer Science', grade: 'A+' },
+        { rollNo: 104, name: 'Bharathi', course: 'Electronics', grade: 'C' },
+        { rollNo: 105, name: 'santhosh', course: 'Computer Science', grade: 'B+' },
+        { rollNo: 106, name: 'Omesh', course: 'Information Tech', grade: 'A' },
+        { rollNo: 107, name: 'Devi', course: 'Electronics', grade: 'B' },
+        { rollNo: 108, name: 'Rajinikanth', course: 'Computer Science', grade: 'C+' },
+        { rollNo: 109, name: 'Gangadharam', course: 'Information Tech', grade: 'A+' },
+        { rollNo: 110, name: 'Hasini', course: 'Electronics', grade: 'B' }
+      ];
+    });
+  </script>
+</body>
+</html>

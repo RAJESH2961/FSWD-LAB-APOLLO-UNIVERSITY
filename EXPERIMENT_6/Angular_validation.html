@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>AngularJS Input Validation</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<style>
+body { font-family: sans-serif; padding: 20px; }
+.error { color: red; font-size: 12px; }
+input.ng-invalid.ng-dirty { border-color: red; }
+</style>
+</head>
+<body ng-controller="myCtrl">
+<h2>Registration Form</h2>
+<form name="myForm" novalidate>
+<p>
+Username:<br>
+<input type="text" name="user" ng-model="user" required>
+<span class="error" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required">Username is required.</span>
+</span>
+</p>
+<p>
+Email:<br>
+<input type="email" name="email" ng-model="email" required>
+<span class="error" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+<span ng-show="myForm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span>
+</p>
+<p>
+</p>
+</form>
+<button ng-disabled="myForm.$invalid">Submit</button>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+// Controller logic can go here if needed
+});
+</script>
+</body>
+</html>

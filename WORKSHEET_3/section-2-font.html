@@ -1,0 +1,61 @@
+<!-- section2-fonts-text.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Font and Text Styling</title>
+    <style>
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            color: #2c3e50;
+        }
+        h2 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            color: darkred;
+        }
+        p.courier {
+            font-family: "Courier New", monospace;
+        }
+
+        /* 2. Bold, italic, underline */
+        .formatting {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        /* 4. Styled paragraph */
+        .styled-paragraph {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+            letter-spacing: 1px;
+        }
+
+        /* 5. Text transform */
+        .upper {
+            text-transform: uppercase;
+        }
+
+        .lower {
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>1. Arial Heading</h1>
+    <h2>1. Georgia Subheading</h2>
+    <p class="courier">1. This is a paragraph with Courier New.</p>
+
+    <p class="formatting">2. This sentence is bold, italic, and underlined.</p>
+
+    <div class="styled-paragraph">
+        4. This paragraph demonstrates line height, justified alignment, and letter spacing. It is styled using CSS to improve readability and layout structure.
+    </div>
+
+    <p>5. <span class="upper">this will be uppercase</span>, and <span class="lower">THIS WILL BE lowercase</span>.</p>
+
+</body>
+</html>

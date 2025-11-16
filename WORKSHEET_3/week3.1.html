@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Styles</title>
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for demonstration */
+        body {
+            font-family: "Inter", sans-serif;
+        }
+
+        /* Specific styles for the repeating background section */
+        .repeat-x-bg {
+            /* Using a placeholder image for demonstration.
+               Replace with your actual image URL if needed. */
+            background-image: url('https://placehold.co/100x100/ADD8E6/000000?text=Pattern');
+            background-repeat: repeat-x; /* Repeats horizontally */
+            background-size: auto; /* Original size of the image */
+            background-position: center top; /* Position at the top center */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+
+        <!-- Section 1: Solid Background Color -->
+        <section class="w-full max-w-4xl bg-blue-200 p-8 my-4 rounded-lg shadow-lg text-center">
+            <h2 class="text-3xl font-bold mb-4">1. Solid Background Color</h2>
+            <p class="text-lg">This section demonstrates a solid background color using Tailwind's <code class="font-mono bg-blue-300 px-2 py-1 rounded">bg-blue-200</code> class.</p>
+            <p class="text-lg">You can easily change this to any color you like!</p>
+        </section>
+
+        <!-- Section 2: Image as Background Covering Entire Page -->
+        <section class="w-full max-w-4xl p-8 my-4 rounded-lg shadow-lg text-white relative overflow-hidden"
+                 style="background-image: url('https://placehold.co/1200x800/4A90E2/FFFFFF?text=Full+Background+Image'); background-size: cover; background-position: center center;">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div> <!-- Overlay for better text readability -->
+            <div class="relative z-10 text-center">
+                <h2 class="text-3xl font-bold mb-4">2. Image as Background (Cover)</h2>
+                <p class="text-lg">This section uses an image as a background that covers the entire area. The <code class="font-mono bg-gray-700 px-2 py-1 rounded">background-size: cover;</code> property ensures it scales to fit.</p>
+                <p class="text-lg">The image URL is a placeholder. Replace it with your desired image!</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Background Image Repeating Horizontally -->
+        <section class="w-full max-w-4xl p-8 my-4 rounded-lg shadow-lg text-gray-800 repeat-x-bg">
+            <h2 class="text-3xl font-bold mb-4 text-center">3. Background Image (Repeat Horizontally)</h2>
+            <p class="text-lg text-center">This section demonstrates a background image that repeats only horizontally using <code class="font-mono bg-white px-2 py-1 rounded">background-repeat: repeat-x;</code>.</p>
+            <p class="text-lg text-center">Notice how the "Pattern" text repeats across the top of this section.</p>
+        </section>
+
+    </div>
+</body>
+</html>

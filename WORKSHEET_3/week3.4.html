@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Editable Content</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to ensure Inter font and basic body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5; /* Light gray background */
+            padding: 20px;
+        }
+        /* Style for the contenteditable div */
+        .editable-box {
+            min-height: 200px; /* Minimum height for the editable area */
+            max-width: 700px; /* Max width to keep content readable */
+            width: 100%; /* Full width within its container */
+            padding: 24px; /* Padding inside the box */
+            border: 2px solid #3b82f6; /* Blue border */
+            background-color: #ffffff; /* White background */
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            outline: none; /* Remove default focus outline */
+            transition: all 0.2s ease-in-out; /* Smooth transition for focus effect */
+        }
+        .editable-box:focus-within {
+            border-color: #2563eb; /* Darker blue on focus */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Slightly larger shadow on focus */
+        }
+        /* Basic styling for heading and paragraph within the editable box */
+        .editable-box h1 {
+            font-size: 2.25rem; /* Equivalent to text-4xl */
+            font-weight: 700; /* Equivalent to font-bold */
+            margin-bottom: 1rem; /* Space below heading */
+            color: #1f2937; /* Dark gray text color */
+        }
+        .editable-box p {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            line-height: 1.75; /* Equivalent to leading-relaxed */
+            color: #374151; /* Medium gray text color */
+        }
+    </style>
+</head>
+<body>
+    <div
+        class="editable-box"
+        contenteditable="true"
+        spellcheck="true"
+        aria-label="Editable content area"
+    >
+        <h1>Welcome to Your Editable Document!</h1>
+        <p>This is a paragraph where you can type and edit content dynamically. Click anywhere inside this box to start typing. You can change the heading, add more paragraphs, or format your text as needed.</p>
+        <p>Feel free to experiment with different ideas and see how the content updates in real-time. This feature is great for quick notes, drafts, or simple content creation directly in your browser.</p>
+    </div>
+</body>
+</html>

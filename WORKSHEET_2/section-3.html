@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frameset Layouts Demo - Orange Theme</title>
+    <style>
+        /* Reset & base */
+        body,
+        html {
+            height: 100%;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            background: #fff7f0;
+            /* light orange background */
+            color: #5c2e00;
+            /* dark orange/brown text */
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border: 2px solid #e07000;
+            /* medium orange border */
+            border-radius: 6px;
+            background: #fff0e0;
+            /* pale orange background */
+            padding: 10px;
+        }
+
+        /* 1. Two frames: Left menu + Right content */
+        #two-frames {
+            display: flex;
+            height: 300px;
+            border: 1px solid #e07000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        #two-frames iframe {
+            border: none;
+        }
+
+        #menu-left {
+            width: 25%;
+            background: #ffb84d;
+            /* light orange */
+        }
+
+        #content-right {
+            width: 75%;
+        }
+
+        /* 2. Three rows: Header, Content, Footer */
+        #three-rows {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            border: 1px solid #e07000;
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+        }
+
+        #header-row,
+        #footer-row {
+            background-color: #ff9933;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            line-height: 50px;
+        }
+
+        #header-row {
+            height: 50px;
+        }
+
+        #footer-row {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #content-row {
+            flex-grow: 1;
+            border-top: 1px solid #e07000;
+            border-bottom: 1px solid #e07000;
+        }
+
+        #content-row iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 3. Nested frameset: Menu left + content split vertically */
+        #nested-frames {
+            display: flex;
+            height: 300px;
+            border: 1px solid #e07000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        #nested-menu {
+            width: 25%;
+            background: #ffe0b3;
+            border-right: 1px solid #e07000;
+        }
+
+        #nested-content {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #nested-top,
+        #nested-bottom {
+            flex-grow: 1;
+            border-bottom: 1px solid #ff9933;
+        }
+
+        #nested-bottom {
+            border-bottom: none;
+        }
+
+        #nested-frames iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Menu styles inside iframes (for consistency) */
+        iframe ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        iframe ul li {
+            margin: 8px 0;
+        }
+
+        iframe a {
+            text-decoration: none;
+            color: #cc5200;
+            font-weight: bold;
+        }
+
+        iframe a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Two Frames</h2>
+    <div id="two-frames" class="section">
+        <iframe id="menu-left" srcdoc="
+      <h3 style='text-align:center; color:#cc5200;'>Menu</h3>
+      <ul>
+        <li><a href='#' onclick='parent.document.getElementById(&quot;content-right&quot;).srcdoc=&quot;&lt;h2&gt;Home&lt;/h2&gt;&lt;p&gt;Welcome to the homepage with orange theme.&lt;/p&gt;&quot;'>Home</a></li>
+        <li><a href='#' onclick='parent.document.getElementById(&quot;content-right&quot;).srcdoc=&quot;&lt;h2&gt;About&lt;/h2&gt;&lt;p&gt;About us content with bright orange spirit.&lt;/p&gt;&quot;'>About</a></li>
+        <li><a href='#' onclick='parent.document.getElementById(&quot;content-right&quot;).srcdoc=&quot;&lt;h2&gt;Services&lt;/h2&gt;&lt;p&gt;Explore our services in vibrant shades.&lt;/p&gt;&quot;'>Services</a></li>
+        <li><a href='#' onclick='parent.document.getElementById(&quot;content-right&quot;).srcdoc=&quot;&lt;h2&gt;Contact&lt;/h2&gt;&lt;p&gt;Reach us through our blazing orange portal.&lt;/p&gt;&quot;'>Contact</a></li>
+      </ul>
+    "></iframe>
+        <iframe id="content-right"
+            srcdoc="<h2>Welcome</h2><p>Select a menu item on the left to explore the orange-themed interface.</p>"></iframe>
+    </div>
+
+    <h2>Three Rows</h2>
+    <div id="three-rows" class="section">
+        <div id="header-row">Orange Header</div>
+        <div id="content-row">
+            <iframe
+                srcdoc="<h2>Main Content</h2><p>This is the orange-themed main content area filled with enthusiasm and energy. Experience the warmth of content presentation like never before!</p>"></iframe>
+        </div>
+        <div id="footer-row">Orange Footer</div>
+    </div>
+
+    <h2>Nested Framesets</h2>
+    <div id="nested-frames" class="section">
+        <iframe id="nested-menu" srcdoc="
+      <h3 style='text-align:center; color:#cc5200;'>Menu</h3>
+      <ul>
+        <li><a href='#' onclick='parent.parent.document.getElementById(&quot;nested-top&quot;).srcdoc=&quot;&lt;h2&gt;Top Content&lt;/h2&gt;&lt;p&gt;You clicked Top 1 - Orange burst!&lt;/p&gt;&quot;'>Top 1</a></li>
+        <li><a href='#' onclick='parent.parent.document.getElementById(&quot;nested-top&quot;).srcdoc=&quot;&lt;h2&gt;Top Update&lt;/h2&gt;&lt;p&gt;Fresh orange vibes at the top panel.&lt;/p&gt;&quot;'>Top 2</a></li>
+        <li><a href='#' onclick='parent.parent.document.getElementById(&quot;nested-bottom&quot;).srcdoc=&quot;&lt;h2&gt;Bottom Content&lt;/h2&gt;&lt;p&gt;You clicked Bottom 1 - Tangy and detailed!&lt;/p&gt;&quot;'>Bottom 1</a></li>
+        <li><a href='#' onclick='parent.parent.document.getElementById(&quot;nested-bottom&quot;).srcdoc=&quot;&lt;h2&gt;Bottom Update&lt;/h2&gt;&lt;p&gt;Rich citrus-style content goes here.&lt;/p&gt;&quot;'>Bottom 2</a></li>
+      </ul>
+    "></iframe>
+        <div id="nested-content">
+            <iframe id="nested-top" srcdoc="<h2>Top Frame</h2><p>Initial orange-flavored top content.</p>"></iframe>
+            <iframe id="nested-bottom"
+                srcdoc="<h2>Bottom Frame</h2><p>Bottom section is styled with sunny orange energy.</p>"></iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>

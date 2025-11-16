@@ -1,0 +1,41 @@
+<!-- section4-editable-boxes.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editable Boxes</title>
+    <style>
+        .editable {
+            border: 2px dashed #555;
+            background-color: #f2f2f2;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            min-height: 60px;
+            transition: background-color 0.3s;
+        }
+
+        .editable:focus {
+            background-color: #e0ffe0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1 + 2 -->
+    <div class="editable" contenteditable="true">1. Click here to edit text.</div>
+
+    <!-- 3 -->
+    <h2 class="editable" contenteditable="true">3. Editable Heading</h2>
+    <p class="editable" contenteditable="true">3. Editable paragraph text.</p>
+
+    <!-- 4 + 5 -->
+    <div class="editable" contenteditable="true">4. Type your name...</div>
+    <div class="editable" contenteditable="true">4. Enter your comment...</div>
+    <div class="editable" contenteditable="true">4. Write something here...</div>
+
+</body>
+
+</html>

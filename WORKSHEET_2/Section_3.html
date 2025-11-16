@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frameset Page Example</title>
+  <script>
+    function showFrameset(type) {
+      if (type === 'two') {
+        document.getElementById('framesetContainer').innerHTML = `
+        <frameset cols="200,*">
+          <frame srcdoc="
+            <h2>Menu</h2>
+            <ul>
+              <li><a href='#' onclick='parent.frames[1].document.body.innerHTML=&quot;&lt;h3&gt;Welcome to Main Content!&lt;/h3&gt;&quot;; return false;'>Item 1</a></li>
+              <li><a href='#' onclick='parent.frames[1].document.body.innerHTML=&quot;&lt;p&gt;This is content loaded from menu.&lt;/p&gt;&quot;; return false;'>Item 2</a></li>
+            </ul>
+          " name="menu">
+          <frame srcdoc="
+            <h3>Welcome to Main Content!</h3>
+            <p>This is the right frame. Click menu items to change this content.</p>
+          " name="content">
+        </frameset>
+        `;
+      } else if (type === 'three') {
+        document.getElementById('framesetContainer').innerHTML = `
+        <frameset rows="100,*,50">
+          <frame srcdoc="
+            <div style='background:#f0f0f0;height:100%;display:flex;align-items:center;justify-content:center;'><h2>Header</h2></div>
+          " name="header" scrolling="no" noresize>
+          <frame srcdoc="
+            <div style='padding:20px;'><h3>Main Content Area</h3><p>This is the main content row.</p></div>
+          " name="main">
+          <frame srcdoc="
+            <div style='background:#e0e0e0;height:100%;display:flex;align-items:center;justify-content:center;'><p>Footer &copy; 2025</p></div>
+          " name="footer" scrolling="no" noresize>
+        </frameset>
+        `;
+      }
+    }
+    // Default to two frameset
+    window.onload = function() {
+      showFrameset('two');
+    };
+  </script>
+</head>
+<body style="margin:0;padding:0;">
+
+<noscript>
+  <h2>This page requires JavaScript to preview frames inline.</h2>
+</noscript>
+
+<div style="padding:10px;background:#007BFF;color:#fff;">
+  <strong>Frameset Demo</strong> 
+  &ndash; 
+  <a href="#" style="color:#fff;text-decoration:underline;" onclick="showFrameset('two');return false;">2-Frame: Menu &amp; Content</a>
+  | 
+  <a href="#" style="color:#fff;text-decoration:underline;" onclick="showFrameset('three');return false;">3-Frame: Header, Content, Footer</a>
+</div>
+
+<div id="framesetContainer" style="width:100vw;height:calc(100vh - 38px);"></div>
+
+</body>
+</html>
